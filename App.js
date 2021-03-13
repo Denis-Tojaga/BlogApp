@@ -3,6 +3,8 @@ import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import IndexScreen from "./src/screens/indexScreen";
+//because we didn't use the export default in out BlogProvider we must use { }
+import { BlogProvider } from "./src/context/BlogContext";
 
 
 
@@ -21,7 +23,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: "Index",
     defaultNavigationOptions: {
-      title: "Index"
+      title: "Blogs"
     }
   }
 
@@ -36,9 +38,13 @@ const navigator = createStackNavigator(
 const App = createAppContainer(navigator);
 
 
-export default ()=>{
+export default () => {
 
-  return <App />
-
+  //reason why we added children props in BlogProvider, because we want it to displey some other custom component
+  return (
+    <BlogProvider>
+      <App />
+    </BlogProvider>
+  );
 };
 
