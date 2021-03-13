@@ -18,11 +18,20 @@ const BlogContext = React.createContext();
 //eventually we're gonna export BlogContext component, and that thing we are going to export as our default from this file
 export const BlogProvider = ({ children }) => {
 
+    const blogPosts  = [
+        {title:"Blog Post #1"},
+        {title:"Blog Post #2"},
+    ];
+
+
+
+
+
 
     //when we create an object with createContext(), it gets the property Provider
     //reason why are we using the .Provider because it will accept some information and make it available to all of our other components
 
-    return <BlogContext.Provider value = {5}>
+    return <BlogContext.Provider value = {blogPosts}>
 
         {children}
 
