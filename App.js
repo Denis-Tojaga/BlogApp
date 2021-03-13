@@ -1,3 +1,5 @@
+//everytime we want to use some JSX in our file we need to import React
+import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import IndexScreen from "./src/screens/indexScreen";
@@ -28,6 +30,14 @@ const navigator = createStackNavigator(
 
 
 
+//when we export createAppContainer(navigator) the react-native export like some sort of component
+//we can assign the whole component to a variable and export a function 
+//wrapping it inside our own custom component
+const App = createAppContainer(navigator);
 
 
-export default createAppContainer(navigator);
+export default ()=>{
+  
+  return <App />
+
+};
