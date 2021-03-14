@@ -40,7 +40,7 @@ const App = createAppContainer(navigator);
 
 export default () => {
 
-  //reason why we added children props in BlogProvider, because we want it to displey some other custom component
+  //reason why we added children props in BlogProvider, because we want it to display some other custom component
   return (
     <BlogProvider>
       <App />

@@ -2,26 +2,38 @@ import React from "react";
 //React's library has a function createContext that helps us to create this new object
 //that is going to handle all CRUD operations 
 
+import {useState} from "react";
+
+
+
 
 
 //this object will "move" information from the root to some nested child 
 const BlogContext = React.createContext();
-
-
 
 //reason why are we using the children prop is because everytime our component get rendered
 //it passes all wrapped elements as a prop of children to our custom component
 //with this we are able to send custom components as an arguments
 
 
+
+
 //we don't use export default here, only export because 
 //eventually we're gonna export BlogContext component, and that thing we are going to export as our default from this file
 export const BlogProvider = ({ children }) => {
 
-    const blogPosts  = [
-        {title:"Blog Post #1"},
-        {title:"Blog Post #2"},
-    ];
+   const [blogPosts,setBlogPosts] = useState([]);
+
+
+//we made a helper callback function for adding a new blogpost to out array
+   const addBlogPost = ()=>{
+
+    //to add something we write [...blogPosts] - to create new identical array
+    // and after that we pass in an object with all its properties
+    setBlogPosts([...blogPosts, {title: `Blog Post #${blogPosts.length+1}`}]);
+
+
+   };
 
 
 
