@@ -29,7 +29,7 @@ export const BlogProvider = ({ children }) => {
    const addBlogPost = ()=>{
 
     //to add something we write [...blogPosts] - to create new identical array
-    // and after that we pass in an object with all its properties
+    // and after that we pass in an object that needs to be added with all its properties
     setBlogPosts([...blogPosts, {title: `Blog Post #${blogPosts.length+1}`}]);
 
 
@@ -43,7 +43,7 @@ export const BlogProvider = ({ children }) => {
     //when we create an object with createContext(), it gets the property Provider
     //reason why are we using the .Provider because it will accept some information and make it available to all of our other components
 
-    return <BlogContext.Provider value = {blogPosts}>
+    return <BlogContext.Provider value = {{data: blogPosts, addBlogPost: addBlogPost}}>
 
         {children}
 
