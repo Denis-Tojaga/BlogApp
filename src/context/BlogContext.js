@@ -1,9 +1,7 @@
-import React, { useReducer } from "react";
+import createDataContext from "./createDataContext";
 
 
 
-//creation of context object from React library
-const BlogContext = React.createContext();
 
 
 
@@ -23,53 +21,26 @@ const blogReducer = (state, action) => {
 
 
 
-export const BlogProvider = ({ children }) => {
 
 
-    const [blogPosts, dispatch] = useReducer(blogReducer, []);
+//after this function gets called we call dispatch that manages adding a new blogpost
+const addBlogPost = dispatch => {
 
-
-
-
-    //callback function
-    // const addBlogPost = () => {
-
-    //     //copy everything from the old array and place it in new one
-    //     //after that add the new object with title prop
-    //     setBlogPosts([...blogPosts, { title: `Blog post${blogPosts.length + 1}` }]);
-    // };
-
-
-
-
-    //after this function gets called we call dispatch that manages adding a new blogpost
-    const addBlogPost = () => {
+    return () => {
         dispatch({ type: "add_blogpost" });
     };
-
-
-
-
-
-
-
-
-    return (
-        <BlogContext.Provider value={{ data: blogPosts, addBlogPost }}>
-            {children}
-        </BlogContext.Provider>
-    );
 
 };
 
 
 
-export default BlogContext;
 
 
 
 
-
+//deconstructuring the stuff our createDataContext function returns
+//passing in the three parameters from this file to that function
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost }, []);
 
 
 
