@@ -39,7 +39,7 @@ const IndexScreen = ({ navigation }) => {
                     return (
 
                         //as a second param we send an object that hase property of blogId and value will be the clicked item.id
-                        <TouchableOpacity onPress={() => { navigation.navigate("Show", { blogId: item.id }) }}>
+                        <TouchableOpacity onPress={() => { navigation.navigate("Show", { id: item.id }) }}>
 
                             <View style={styles.row}>
                                 <Text style={styles.blogTitle}>{item.title}</Text>
