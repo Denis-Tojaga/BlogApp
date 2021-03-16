@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from "react-native";
 import { Context } from "../context/BlogContext";
-import { Feather } from '@expo/vector-icons';
+import { Feather,AntDesign } from '@expo/vector-icons';
 
 
 
@@ -15,8 +15,17 @@ const IndexScreen = () => {
 
     return (
         <View>
-            <Text>Index screen!</Text>
-            <Button title="Add post" onPress={addBlogPost} />
+
+            <TouchableOpacity>
+
+                <View style = {styles.titleView}>
+                    <Text style = {styles.title}> Blog list </Text>
+                    <AntDesign name="pluscircleo" style ={styles.addIconStyle} />
+                </View>
+
+            </TouchableOpacity>
+
+
 
             <FlatList
                 data={state}
@@ -26,12 +35,11 @@ const IndexScreen = () => {
                 renderItem={({ item }) => {
 
                     return <View style={styles.row}>
-                        <Text style={styles.title}>{item.title}</Text>
+
+                        <Text style={styles.blogTitle}>{item.title}</Text>
 
                         <TouchableOpacity onPress={() => { deleteBlogPost(item.id) }}>
-
                             <Feather name="trash" style={styles.iconStyle} />
-
                         </TouchableOpacity>
 
                     </View>
@@ -70,9 +78,30 @@ const styles = StyleSheet.create({
         color: "black"
     },
 
-    title: {
-        fontSize: 20,
-        fontWeight: "600"
+    blogTitle: {
+        fontSize: 18,
+        fontWeight: "500"
+    },
+
+
+    title:{
+        fontSize:30,
+        fontWeight:"bold",
+    },
+
+    titleView:{
+        borderBottomWidth:1,
+        borderBottomColor:"black",
+        flexDirection:"row",
+        justifyContent:"space-between",
+        paddingVertical:5,
+        paddingHorizontal:20,
+        marginVertical:12
+    },
+
+    addIconStyle:{
+        fontSize:38,
+        color:"black"
     }
 });
 
