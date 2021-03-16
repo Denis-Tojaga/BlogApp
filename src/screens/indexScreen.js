@@ -11,7 +11,7 @@ import { Feather } from '@expo/vector-icons';
 const IndexScreen = () => {
 
     //destructuring the props we get from BlogContext component
-    const { state, addBlogPost } = useContext(Context);
+    const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
     return (
         <View>
@@ -28,7 +28,7 @@ const IndexScreen = () => {
                     return <View style={styles.row}>
                         <Text style={styles.title}>{item.title}</Text>
 
-                        <TouchableOpacity onPress = {()=>{console.log(item.id)}}>
+                        <TouchableOpacity onPress={() => { deleteBlogPost(item.id) }}>
 
                             <Feather name="trash" style={styles.iconStyle} />
 

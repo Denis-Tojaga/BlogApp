@@ -59,7 +59,7 @@ const deleteBlogPost = dispatch => {
 
 //deconstructuring the stuff our createDataContext function returns
 //passing in the three parameters from this file to that function
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost }, []);
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost,deleteBlogPost }, []);
 
 
 
