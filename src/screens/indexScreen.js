@@ -86,13 +86,15 @@ const styles = StyleSheet.create({
 
     blogTitle: {
         fontSize: 18,
-        fontWeight: "500"
+        fontWeight: "500",
+        color:"black"
     },
 
 
     title: {
         fontSize: 30,
         fontWeight: "bold",
+        color:"black"
     },
 
     titleView: {
