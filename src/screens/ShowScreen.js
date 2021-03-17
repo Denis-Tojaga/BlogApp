@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../context/BlogContext";
-import { Text, View, StyleSheet,TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { Feather } from '@expo/vector-icons';
 
@@ -28,18 +28,7 @@ const ShowScreen = ({ navigation }) => {
 
     return (
         <View>
-
-            <View style={styles.titleEdit}>
-                <TextInput
-                    style={styles.inputStyle}
-                    placeholder="Enter blog title here"
-                />
-                <TouchableOpacity>
-                    <Feather name="edit-3" style={styles.editIconStyle} />
-                </TouchableOpacity>
-            </View>
-
-
+            <Text>ShowScreen</Text>
         </View>
     );
 };
@@ -48,29 +37,7 @@ const ShowScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
 
-    titleEdit: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        paddingHorizontal: 15,
-        marginHorizontal: 5,
-        marginVertical: 15
-    },
-
-
-    inputStyle: {
-        borderBottomColor: "black",
-        borderBottomWidth: 2,
-        borderBottomLeftRadius: 4,
-        borderBottomRightRadius: 4,
-        flex: 1,
-        marginRight: 20,
-        fontSize: 20
-    },
-
-    editIconStyle: {
-        color: "black",
-        fontSize: 40,
-    }
+    
 });
 
 

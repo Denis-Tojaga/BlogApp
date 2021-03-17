@@ -16,13 +16,10 @@ const IndexScreen = ({ navigation }) => {
     return (
         <View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={addBlogPost}>
 
                 <View style={styles.titleView}>
                     <Text style={styles.title}> Blog list </Text>
-                    <TouchableOpacity onPress={addBlogPost}>
-                        <AntDesign name="pluscircleo" style={styles.addIconStyle} />
-                    </TouchableOpacity>
                 </View>
 
             </TouchableOpacity>
@@ -31,7 +28,6 @@ const IndexScreen = ({ navigation }) => {
 
             <FlatList
                 data={state}
-
                 keyExtractor={blogPost => blogPost.title}
 
                 renderItem={({ item }) => {
@@ -44,14 +40,14 @@ const IndexScreen = ({ navigation }) => {
                             <View style={styles.row}>
                                 <Text style={styles.blogTitle}>{item.title}</Text>
                                 <TouchableOpacity onPress={() => { deleteBlogPost(item.id) }}>
-                                    <Feather name="trash" style={styles.iconStyle} />
+                                    <Feather name="trash" style={styles.deleteIconStyle} />
                                 </TouchableOpacity>
                             </View>
 
                         </TouchableOpacity>
                     );
-
                 }}
+
             />
 
 
@@ -61,6 +57,15 @@ const IndexScreen = ({ navigation }) => {
 };
 
 
+
+IndexScreen.navigationOptions = () => {
+    return {
+        headerRight:()=> <AntDesign name="plussquareo" style = {styles.addIconStyle} />
+
+    };
+
+
+};
 
 
 
@@ -79,7 +84,7 @@ const styles = StyleSheet.create({
         borderColor: "gray"
     },
 
-    iconStyle: {
+    deleteIconStyle: {
         fontSize: 35,
         color: "black"
     },
@@ -87,21 +92,22 @@ const styles = StyleSheet.create({
     blogTitle: {
         fontSize: 18,
         fontWeight: "500",
-        color:"black"
+        color: "black",
+
     },
 
 
     title: {
         fontSize: 30,
         fontWeight: "bold",
-        color:"black"
+        color: "black",
     },
 
     titleView: {
         borderBottomWidth: 1,
         borderBottomColor: "black",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         paddingVertical: 5,
         paddingHorizontal: 20,
         marginVertical: 12
@@ -109,7 +115,8 @@ const styles = StyleSheet.create({
 
     addIconStyle: {
         fontSize: 38,
-        color: "black"
+        color: "black",
+        marginRight:20
     }
 });
 
