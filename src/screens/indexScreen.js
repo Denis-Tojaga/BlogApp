@@ -9,9 +9,9 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 
 
 const IndexScreen = ({ navigation }) => {
-
     //destructuring the props we get from BlogContext component
     const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+
 
     return (
         <View>
@@ -26,6 +26,7 @@ const IndexScreen = ({ navigation }) => {
 
 
 
+
             <FlatList
                 data={state}
                 keyExtractor={blogPost => blogPost.title}
@@ -33,7 +34,6 @@ const IndexScreen = ({ navigation }) => {
                 renderItem={({ item }) => {
 
                     return (
-
                         //as a second param we send an object that hase property of blogId and value will be the clicked item.id
                         <TouchableOpacity onPress={() => { navigation.navigate("Show", { id: item.id }) }}>
 
@@ -74,6 +74,11 @@ IndexScreen.navigationOptions = ({ navigation }) => {
 
     };
 };
+
+
+
+
+
 
 
 
