@@ -58,13 +58,21 @@ const IndexScreen = ({ navigation }) => {
 
 
 
-IndexScreen.navigationOptions = () => {
+
+
+
+
+//we use this to display icon in the header part of application
+//in order to navigate from this we again need to destructurize the navigation object
+IndexScreen.navigationOptions = ({ navigation }) => {
     return {
-        headerRight:()=> <AntDesign name="plussquareo" style = {styles.addIconStyle} />
+        //in order to avoid the warning we use arrow function instead of just showing the component
+        //for clicking it we have to wrap it up in touchable opacity component
+        headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+            <AntDesign name="plussquareo" style={styles.addIconStyle} />
+        </TouchableOpacity>
 
     };
-
-
 };
 
 
@@ -116,7 +124,7 @@ const styles = StyleSheet.create({
     addIconStyle: {
         fontSize: 38,
         color: "black",
-        marginRight:20
+        marginRight: 20
     }
 });
 
