@@ -12,6 +12,10 @@ import { Feather } from '@expo/vector-icons';
 //function takes the name of the property,object we recieved, has
 const ShowScreen = ({ navigation }) => {
 
+    //destructurizing the params we sent on index screen by cliking on certain post
+    const { title, content } = navigation.state.params;
+
+
     //the id we got from index screen by clicking on some blogPost
     const recievedID = navigation.getParam("id");
 
@@ -35,9 +39,25 @@ const ShowScreen = ({ navigation }) => {
 
 
 
-const styles = StyleSheet.create({
+ShowScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
+            <Feather name="edit-3" style = {styles.editIcon} />
+        </TouchableOpacity>
+    };
+};
 
-    
+
+
+
+
+
+const styles = StyleSheet.create({
+    editIcon: {
+        color: "black",
+        fontSize: 35,
+        marginRight:25
+    }
 });
 
 

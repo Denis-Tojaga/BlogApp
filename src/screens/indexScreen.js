@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from "react-native";
 import { Context } from "../context/BlogContext";
-import { Feather, Ionicons  } from '@expo/vector-icons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 
 
 
@@ -9,16 +9,16 @@ import { Feather, Ionicons  } from '@expo/vector-icons';
 
 
 const IndexScreen = ({ navigation }) => {
-    
+
     //destructuring the props we get from BlogContext component
-    const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+    const { state, deleteBlogPost } = useContext(Context);
 
 
     return (
         <View>
-                <View style={styles.titleView}>
-                    <Text style={styles.title}> Blog list </Text>
-                </View>
+            <View style={styles.titleView}>
+                <Text style={styles.title}> Blog list </Text>
+            </View>
 
 
             <FlatList
@@ -29,7 +29,9 @@ const IndexScreen = ({ navigation }) => {
 
                     return (
                         //as a second param we send an object that hase property of blogId and value will be the clicked item.id
-                        <TouchableOpacity onPress={() => { navigation.navigate("Show", { id: item.id }) }}>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate("Show", { id: item.id, title: item.title, content: item.content })
+                        }}>
 
                             <View style={styles.row}>
                                 <Text style={styles.blogTitle}>{item.title}</Text>
@@ -63,7 +65,7 @@ IndexScreen.navigationOptions = ({ navigation }) => {
         //in order to avoid the warning we use arrow function instead of just showing the component
         //for clicking it we have to wrap it up in touchable opacity component
         headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Create")}>
-            <Ionicons name="md-add-circle-outline" style = {styles.addIconStyle} />
+            <Ionicons name="md-add-circle-outline" style={styles.addIconStyle} />
         </TouchableOpacity>
 
     };
