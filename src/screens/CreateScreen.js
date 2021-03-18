@@ -26,6 +26,8 @@ const CreateScreen = ({ navigation }) => {
             <Text style={styles.label} >Enter Content:</Text>
             <TextInput style={styles.inputStyle} value={content} onChangeText={(content) => setContent(content)} />
 
+            <Button style = {styles.button} title = "Add blog post" />
+
         </View>
     );
 
@@ -41,19 +43,23 @@ const styles = StyleSheet.create({
         borderColor: "black",
         marginBottom: 15,
         padding: 5,
-        margin: 10,
+        margin: 8,
         borderRadius:8
     },
 
 
     label: {
-        fontSize: 25,
+        fontSize: 23,
         fontWeight:"bold",
         marginHorizontal: 10
     },
 
     container:{
         marginVertical:25
+    },
+
+    button:{
+        marginHorizontal:10
     }
 
 });
