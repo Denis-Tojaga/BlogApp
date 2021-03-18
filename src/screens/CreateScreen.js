@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Text, TextInput, View, StyleSheet, TouchableOpacity,Button } from "react-native";
+import { Text, TextInput, View, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { Context } from "../context/BlogContext";
 
 
@@ -18,13 +18,13 @@ const CreateScreen = ({ navigation }) => {
 
 
     //destructurizing the addBlogPost function our context gives us with other functions
-    const {addBlogPost} = useContext(Context);
+    const { addBlogPost } = useContext(Context);
 
 
 
 
     return (
-        <View style = {styles.container}>
+        <View style={styles.container}>
 
             <Text style={styles.label} >Enter Title:</Text>
             <TextInput style={styles.inputStyle} value={title} onChangeText={(text) => setTitle(text)} />
@@ -32,10 +32,14 @@ const CreateScreen = ({ navigation }) => {
             <Text style={styles.label} >Enter Content:</Text>
             <TextInput style={styles.inputStyle} value={content} onChangeText={(content) => setContent(content)} />
 
-            <Button 
-            onPress = { ()=> addBlogPost(title,content) }
-            style = {styles.button} 
-            title = "Add blog post" />
+            <Button
+                onPress={() => {
+                    addBlogPost(title, content);
+                    //because we received as a prop navigation object we just call function to navigate back to home screen after adding new post
+                    navigation.navigate("Index");
+                }}
+                style={styles.button}
+                title="Add blog post" />
 
         </View>
     );
@@ -53,22 +57,22 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         padding: 5,
         margin: 8,
-        borderRadius:8
+        borderRadius: 8
     },
 
 
     label: {
         fontSize: 23,
-        fontWeight:"bold",
+        fontWeight: "bold",
         marginHorizontal: 10
     },
 
-    container:{
-        marginVertical:25
+    container: {
+        marginVertical: 25
     },
 
-    button:{
-        marginHorizontal:10
+    button: {
+        marginHorizontal: 10
     }
 
 });
