@@ -34,9 +34,14 @@ const CreateScreen = ({ navigation }) => {
 
             <Button
                 onPress={() => {
-                    addBlogPost(title, content);
-                    //because we received as a prop navigation object we just call function to navigate back to home screen after adding new post
-                    navigation.navigate("Index");
+
+                    addBlogPost(title, content, () => {
+                        //as a third parameter we add in a callback function to our addBlogPost function 
+                        //because if we were communicating with API we would have to wait for some response
+                        //because we received as a prop navigation object we just call function to navigate back to home screen after adding new post
+                        navigation.navigate("Index");
+                    });
+
                 }}
                 style={styles.button}
                 title="Add blog post" />

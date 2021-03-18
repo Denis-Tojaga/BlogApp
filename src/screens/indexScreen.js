@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from "react-native";
 import { Context } from "../context/BlogContext";
-import { Feather, AntDesign } from '@expo/vector-icons';
+import { Feather, Ionicons  } from '@expo/vector-icons';
 
 
 
@@ -9,22 +9,16 @@ import { Feather, AntDesign } from '@expo/vector-icons';
 
 
 const IndexScreen = ({ navigation }) => {
+    
     //destructuring the props we get from BlogContext component
     const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
 
     return (
         <View>
-
-            <TouchableOpacity onPress={addBlogPost}>
-
                 <View style={styles.titleView}>
                     <Text style={styles.title}> Blog list </Text>
                 </View>
-
-            </TouchableOpacity>
-
-
 
 
             <FlatList
@@ -69,7 +63,7 @@ IndexScreen.navigationOptions = ({ navigation }) => {
         //in order to avoid the warning we use arrow function instead of just showing the component
         //for clicking it we have to wrap it up in touchable opacity component
         headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Create")}>
-            <AntDesign name="plussquareo" style={styles.addIconStyle} />
+            <Ionicons name="md-add-circle-outline" style = {styles.addIconStyle} />
         </TouchableOpacity>
 
     };
