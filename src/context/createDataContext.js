@@ -31,7 +31,6 @@ export default (reducer, actions, initialState) => {
         for (let key in actions) {
             //key === "addBlogPost"
             boundActions[key] = actions[key](dispatch);
-
         }
 
 

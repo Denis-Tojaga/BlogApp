@@ -17,6 +17,12 @@ const CreateScreen = ({ navigation }) => {
 
 
 
+    //destructurizing the addBlogPost function our context gives us with other functions
+    const {addBlogPost} = useContext(Context);
+
+
+
+
     return (
         <View style = {styles.container}>
 
@@ -26,7 +32,10 @@ const CreateScreen = ({ navigation }) => {
             <Text style={styles.label} >Enter Content:</Text>
             <TextInput style={styles.inputStyle} value={content} onChangeText={(content) => setContent(content)} />
 
-            <Button style = {styles.button} title = "Add blog post" />
+            <Button 
+            onPress = { ()=> addBlogPost(title,content) }
+            style = {styles.button} 
+            title = "Add blog post" />
 
         </View>
     );

@@ -11,7 +11,7 @@ const blogReducer = (state, action) => {
     switch (action.type) {
         case "add_blogpost":
             //we use math.random to randomly generate and id for every new blogpost
-            return [...state, { id: Math.floor(Math.random() * 99999), title: `Blog Post #${state.length + 1}` }];
+            return [...state, { id: Math.floor(Math.random() * 99999), title: action.payload.blogTitle, content: action.payload.blogContent }];
 
         case "delete_blogpost":
             //helper function filter goes through all of elements of state, and runs the given function
@@ -33,9 +33,9 @@ const blogReducer = (state, action) => {
 //after this function gets called we call dispatch that manages adding a new blogpost
 const addBlogPost = dispatch => {
 
-    return () => {
+    return (title,content) => {
         //this object will be read by react-native as a second argument in blogReducer function
-        dispatch({ type: "add_blogpost" });
+        dispatch({ type: "add_blogpost", payload:{blogTitle:title,blogContent:content} });
     };
 };
 
