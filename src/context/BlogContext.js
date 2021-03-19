@@ -33,9 +33,9 @@ const blogReducer = (state, action) => {
 //after this function gets called we call dispatch that manages adding a new blogpost
 const addBlogPost = dispatch => {
 
-    return (title,content,callbackFunction) => {
+    return (title, content, callbackFunction) => {
         //this object will be read by react-native as a second argument in blogReducer function
-        dispatch({ type: "add_blogpost", payload:{blogTitle:title,blogContent:content} });
+        dispatch({ type: "add_blogpost", payload: { blogTitle: title, blogContent: content } });
         //after saving we call the function to go back to index screen
         callbackFunction();
     };
@@ -61,7 +61,7 @@ const deleteBlogPost = dispatch => {
 
 //deconstructuring the stuff our createDataContext function returns
 //passing in the three parameters from this file to that function
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost,deleteBlogPost }, []);
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [{ id: 1, title: "Test Post", content: "My first content" }]);
 
 
 

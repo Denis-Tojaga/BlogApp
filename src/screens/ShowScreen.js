@@ -6,6 +6,10 @@ import { Feather } from '@expo/vector-icons';
 
 
 
+
+
+
+
 //in order to recieve something with navigating between screens 
 //we again must recieve { navigation } property
 //that property has a function getParam("nameOfPropWeSent")
@@ -28,6 +32,7 @@ const ShowScreen = ({ navigation }) => {
 
     return (
         <View>
+            <Text>{blogPost.id}</Text>
             <Text>{blogPost.title}</Text>
             <Text>{blogPost.content}</Text>
         </View>
@@ -40,11 +45,17 @@ const ShowScreen = ({ navigation }) => {
 
 
 ShowScreen.navigationOptions = ({ navigation }) => {
+
+    //we are passing a property when clicking the edit icon 
+    //that property is the same as we got in the showScreen
+    //thats id of certain blog post, so we can just pass it to the next screen and receive it as always
+
     return {
-        headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
-            <Feather name="edit-3" style = {styles.editIcon} />
+        headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Edit", { id: navigation.getParam("id") })}>
+            <Feather name="edit-3" style={styles.editIcon} />
         </TouchableOpacity>
     };
+
 };
 
 
@@ -56,7 +67,7 @@ const styles = StyleSheet.create({
     editIcon: {
         color: "black",
         fontSize: 35,
-        marginRight:25
+        marginRight: 25
     }
 });
 
