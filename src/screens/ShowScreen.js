@@ -16,6 +16,11 @@ import { Feather } from '@expo/vector-icons';
 //function takes the name of the property,object we recieved, has
 const ShowScreen = ({ navigation }) => {
 
+
+    //console.log(navigation);
+
+
+
     //the id we got from index screen by clicking on some blogPost
     const recievedID = navigation.getParam("id");
 
@@ -51,7 +56,9 @@ ShowScreen.navigationOptions = ({ navigation }) => {
     //thats id of certain blog post, so we can just pass it to the next screen and receive it as always
 
     return {
-        headerRight: () => <TouchableOpacity onPress={() => navigation.navigate("Edit", { id: navigation.getParam("id") })}>
+        headerRight: () => <TouchableOpacity onPress={() => {
+            navigation.navigate("Edit", { id: navigation.getParam("id") })
+        }}>
             <Feather name="edit-3" style={styles.editIcon} />
         </TouchableOpacity>
     };

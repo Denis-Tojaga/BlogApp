@@ -9,6 +9,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const EditScreen = ({ navigation }) => {
 
+  const recievedID = navigation.getParam("id");
 
   return (
     <View>
