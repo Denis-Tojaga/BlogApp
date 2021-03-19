@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Context } from "../context/BlogContext";
 
 
@@ -34,7 +34,8 @@ const EditScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text>Welcome to edit screen! - {recievedID}</Text>
+      <Text>Edit title:</Text>
+      <TextInput value={title} onChangeText={(newTitle) => setTitle(newTitle)} />
     </View>
   );
 
