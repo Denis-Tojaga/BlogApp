@@ -57,6 +57,11 @@ const deleteBlogPost = dispatch => {
 
 
 
+//after this function gets called we call dispatch function that will edit a current blogPost
+
+
+
+
 
 
 //deconstructuring the stuff our createDataContext function returns

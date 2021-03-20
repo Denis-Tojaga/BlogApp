@@ -22,8 +22,22 @@ const EditScreen = ({ navigation }) => {
 
 
 
+  //as we are editing we need to pass in some default values of a blogPost
+  //so we pass in a object with two properties
+  //title and content from the blog post we are currently on
+
   return (
-    <BlogPostForm />
+    <BlogPostForm
+      onSubmitFunction={(title, content) => {
+        console.log(title);
+      }}
+
+      initialValues={{ title: blogPost.title, content: blogPost.content }}
+
+    />
+
+
+
   );
 
 

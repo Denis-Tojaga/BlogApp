@@ -5,16 +5,18 @@ import { View, Text, StyleSheet, TextInput, Button } from "react-native";
 
 
 
-const BlogPostForm = ({ onSubmitFunction }) => {
+const BlogPostForm = ({ onSubmitFunction, initialValues }) => {
 
 
     //we initialize two pieces of state
 
+    //we pass in the props we got from initialValues object EditScreen is sending
+
     //one to handle title entry
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState(initialValues.title);
 
     //one to handle the content entry
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState(initialValues.content);
 
 
 
