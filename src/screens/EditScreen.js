@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import React, { useContext } from "react";
+import { StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
+import BlogPostForm from "../components/BlogPostForm";
 
 
 
@@ -21,22 +22,8 @@ const EditScreen = ({ navigation }) => {
 
 
 
-  //if we are editing,the initial state for useState won't be an empty string
-  //it will be a current title that needs to be changed
-  const [title, setTitle] = useState(blogPost.title);
-
-
-  //we do the same thing for content
-  const [content, setContent] = useState(blogPost.content);
-
-
-
-
   return (
-    <View>
-      <Text>Edit title:</Text>
-      <TextInput value={title} onChangeText={(newTitle) => setTitle(newTitle)} />
-    </View>
+    <BlogPostForm />
   );
 
 
