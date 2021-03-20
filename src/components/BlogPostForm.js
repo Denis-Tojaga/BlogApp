@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, TextInput, Button } from "react-native";
 
 
 
-const BlogPostForm = () => {
+const BlogPostForm = ({ onSubmitFunction }) => {
 
 
     //we initialize two pieces of state
@@ -40,6 +40,9 @@ const BlogPostForm = () => {
 
 
             <Button
+                //on pressing button we call the function we received as a prop from certain screen
+                //the whole logic is done in screen we just need to call it here
+                onPress={() => onSubmitFunction(title, content)}
                 style={styles.button}
                 title="Save"
             />
