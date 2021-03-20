@@ -2,8 +2,16 @@ import React, { useContext, useState } from "react";
 import { Text, TextInput, View, StyleSheet, TouchableOpacity, Button, } from "react-native";
 import { Context } from "../context/BlogContext";
 
-const CreateScreen = ({ navigation }) => {
 
+
+
+
+const ValidateInputs = (blogTitle, blogContent) => {
+  return blogTitle != "" && blogContent != "" ? true : false;
+}
+
+
+const CreateScreen = ({ navigation }) => {
 
 
   //we initialize two pieces of state
@@ -17,6 +25,9 @@ const CreateScreen = ({ navigation }) => {
   //destructurizing the addBlogPost function our context gives us with other functions
   const { addBlogPost } = useContext(Context);
 
+
+
+  ////{filledFields != false ? null : <Text>Please fill out the input fields!</Text>}
 
 
 
@@ -42,6 +53,7 @@ const CreateScreen = ({ navigation }) => {
 
       <Button
         onPress={() => {
+
           if (ValidateInputs(title, content)) {
             addBlogPost(title, content, () => {
               //as a third parameter we add in a callback function to our addBlogPost function
@@ -54,8 +66,6 @@ const CreateScreen = ({ navigation }) => {
         style={styles.button}
         title="Add blog post"
       />
-
-
 
 
     </View>
