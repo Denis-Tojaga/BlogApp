@@ -60,6 +60,23 @@ const BlogPostForm = ({ onSubmitFunction, initialValues }) => {
 
 
 
+//this object will be use as a default prop if we don't pass in any other props
+//whenever we show blogPostForm from the create screen
+//initial values will be an empty strings
+//this is 100% automatic react-native will always check if our component has default props object
+BlogPostForm.defaultProps = {
+
+    initialValues: {
+        title: "",
+        content: ""
+    }
+};
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
 

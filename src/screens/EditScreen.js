@@ -14,7 +14,7 @@ const EditScreen = ({ navigation }) => {
   const recievedID = navigation.getParam("id");
 
   //we destructurize state variable from Context to get all the states
-  const { state } = useContext(Context);
+  const { state, editBlogPost } = useContext(Context);
 
 
   //searching for the state with given id
@@ -29,11 +29,13 @@ const EditScreen = ({ navigation }) => {
   return (
     <BlogPostForm
       onSubmitFunction={(title, content) => {
-        console.log(title);
+
+        //we are sending an id of a current blogPost, and new title and content
+        editBlogPost(blogPost.id, title, content);
+
       }}
 
       initialValues={{ title: blogPost.title, content: blogPost.content }}
-
     />
 
 

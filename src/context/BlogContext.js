@@ -43,6 +43,11 @@ const addBlogPost = dispatch => {
 
 
 
+
+
+
+
+
 //after this function gets called we call dispatch function that will delete a new blogpost
 const deleteBlogPost = dispatch => {
 
@@ -57,8 +62,21 @@ const deleteBlogPost = dispatch => {
 
 
 
-//after this function gets called we call dispatch function that will edit a current blogPost
 
+
+
+
+
+//after this function gets called we call dispatch function that will edit a current blogPost
+const editBlogPost = dispatch => {
+
+    //this inner function is exactly what is going to be called in our component
+    //we are passing in an id of a blogPost we are editing
+    //and new title and new content
+    return (id, newTitle, newContent) => {
+        dispatch({ type: "edit_blogpost", payload: { id: id, title: newTitle, content: newContent } });
+    };
+};
 
 
 
@@ -66,7 +84,7 @@ const deleteBlogPost = dispatch => {
 
 //deconstructuring the stuff our createDataContext function returns
 //passing in the three parameters from this file to that function
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [{ id: 1, title: "Test Post", content: "My first content" }]);
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost, editBlogPost }, [{ id: 1, title: "Test Post", content: "My first content" }]);
 
 
 

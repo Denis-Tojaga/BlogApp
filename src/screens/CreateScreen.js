@@ -17,17 +17,9 @@ const CreateScreen = ({ navigation }) => {
       onSubmitFunction={(newTitle, newContent) => {
         addBlogPost(newTitle, newContent, () => navigation.navigate("Index"))
       }}
-
     />
 
-
-
-
-
   );
-
-
-
 
 };
 
