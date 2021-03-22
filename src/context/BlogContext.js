@@ -19,11 +19,33 @@ const blogReducer = (state, action) => {
             //so in the result we are only returning those blog post that don't have the id we sent as payload
             return state.filter((blogPost) => blogPost.id != action.payload);
 
+
+        case "edit_blogpost":
+
+            //we use map to go through all the element of our state
+            //this callback function gets called for every element in the array
+            return state.map((blogPost) => {
+
+                //this callback function is gonna accept every blogPost
+                //it checks if the id's are the same
+                //if they're the same we return the object from action.payload (with same id but different values)
+                //if not we return the state we got
+
+                return blogPost.id === action.payload.id ? action.payload : blogPost
+
+            });
+
+
         default:
             return state;
     }
 
 };
+
+
+
+
+
 
 
 
@@ -44,10 +66,6 @@ const addBlogPost = dispatch => {
 
 
 
-
-
-
-
 //after this function gets called we call dispatch function that will delete a new blogpost
 const deleteBlogPost = dispatch => {
 
@@ -63,10 +81,6 @@ const deleteBlogPost = dispatch => {
 
 
 
-
-
-
-
 //after this function gets called we call dispatch function that will edit a current blogPost
 const editBlogPost = dispatch => {
 
@@ -77,6 +91,13 @@ const editBlogPost = dispatch => {
         dispatch({ type: "edit_blogpost", payload: { id: id, title: newTitle, content: newContent } });
     };
 };
+
+
+
+
+
+
+
 
 
 
