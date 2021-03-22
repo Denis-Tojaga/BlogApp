@@ -31,8 +31,12 @@ const EditScreen = ({ navigation }) => {
       onSubmitFunction={(title, content) => {
 
         //we are sending an id of a current blogPost, and new title and content
-        editBlogPost(blogPost.id, title, content);
-        navigation.navigate("Index");
+
+        //pop function comes with our navigation prop
+        //it pops off the current view from the stack navigator
+        //returns the user back to the previous screen he was looking at
+        //we must call callback functions with an arrow function
+        editBlogPost(blogPost.id, title, content, () => navigation.pop());
       }}
 
       initialValues={{ title: blogPost.title, content: blogPost.content }}

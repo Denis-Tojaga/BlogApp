@@ -87,8 +87,9 @@ const editBlogPost = dispatch => {
     //this inner function is exactly what is going to be called in our component
     //we are passing in an id of a blogPost we are editing
     //and new title and new content
-    return (id, newTitle, newContent) => {
+    return (id, newTitle, newContent, callBackFunction) => {
         dispatch({ type: "edit_blogpost", payload: { id: id, title: newTitle, content: newContent } });
+        callBackFunction();
     };
 };
 
