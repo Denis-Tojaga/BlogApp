@@ -32,7 +32,7 @@ const EditScreen = ({ navigation }) => {
 
         //we are sending an id of a current blogPost, and new title and content
         editBlogPost(blogPost.id, title, content);
-
+        navigation.navigate("Index");
       }}
 
       initialValues={{ title: blogPost.title, content: blogPost.content }}

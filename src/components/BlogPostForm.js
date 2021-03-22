@@ -3,6 +3,14 @@ import { View, Text, StyleSheet, TextInput, Button } from "react-native";
 
 
 
+//function trim cuts all of white space on the beginning and on the end
+//if that function doesn't return a string ( as it should if there's something in the input)
+//then the input is empty
+
+const ValidInputs = (titleInput, contentInput) => {
+    return !titleInput.trim() || !contentInput.trim() ? false : true;
+};
+
 
 
 const BlogPostForm = ({ onSubmitFunction, initialValues }) => {
@@ -44,7 +52,13 @@ const BlogPostForm = ({ onSubmitFunction, initialValues }) => {
             <Button
                 //on pressing button we call the function we received as a prop from certain screen
                 //the whole logic is done in screen we just need to call it here
-                onPress={() => onSubmitFunction(title, content)}
+                onPress={() => {
+                    if (ValidInputs(title, content)) {
+                        onSubmitFunction(title, content);
+                    } else {
+                        console.log("Nisi popunio polja!")
+                    }
+                }}
                 style={styles.button}
                 title="Save"
             />
