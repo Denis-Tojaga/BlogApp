@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../context/BlogContext";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 import { Feather } from '@expo/vector-icons';
+import BlogPostInfo from "../components/BlogPostInfo";
 
 
 
@@ -15,9 +15,6 @@ import { Feather } from '@expo/vector-icons';
 //that property has a function getParam("nameOfPropWeSent")
 //function takes the name of the property,object we recieved, has
 const ShowScreen = ({ navigation }) => {
-
-
-    //console.log(navigation);
 
 
 
@@ -37,9 +34,7 @@ const ShowScreen = ({ navigation }) => {
 
     return (
         <View>
-            <Text>{blogPost.id}</Text>
-            <Text>{blogPost.title}</Text>
-            <Text>{blogPost.content}</Text>
+            <BlogPostInfo blogTitle={blogPost.title} blogContent={blogPost.content} />
         </View>
     );
 };
