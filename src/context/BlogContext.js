@@ -55,23 +55,27 @@ const blogReducer = (state, action) => {
 
 
 
-
-
+//ASYNC FUNCTION TO COMMUNICATE WITH JSON SERVER
 
 const getBlogPosts = dispatch => {
 
     //because we are communicating with an api we need to make this function async/await
     //everything we sent as a request is going to be added to our baseURL in jsonServer file
     return async () => {
-        const response = await jsonServer.get("/blogposts");
-        //this is where our blogposts will be
-        //response.data === [ {}, {} , {} ]
 
+        try {
+            const response = await jsonServer.get("/blogposts");
+            //this is where our blogposts will be
+            //response.data === [ {}, {} , {} ]
 
-        //now we call our dispatch function to fill our state with payload property
-        dispatch({ type: "get_blogposts", payload: response.data })
+            //now we call our dispatch function to fill our state with payload property
+            dispatch({ type: "get_blogposts", payload: response.data })
+
+        } catch (error) {
+            console.log(error);
+        }
+
     };
-
 };
 
 
@@ -150,7 +154,7 @@ const editBlogPost = dispatch => {
 
 //deconstructuring the stuff our createDataContext function returns
 //passing in the three parameters from this file to that function
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost, editBlogPost }, [{ id: 1, title: "Test Post", content: "My first content" }]);
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts }, []);
 
 
 
