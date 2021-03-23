@@ -64,6 +64,7 @@ const getBlogPosts = dispatch => {
     return async () => {
 
         try {
+            //string must be the same as the object on the JSON server in order to work
             const response = await jsonServer.get("/blogposts");
             //this is where our blogposts will be
             //response.data === [ {}, {} , {} ]
