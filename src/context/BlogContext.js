@@ -1,4 +1,5 @@
 import createDataContext from "./createDataContext";
+import jsonServer from "../api/jsonServer";
 
 
 
@@ -9,6 +10,12 @@ import createDataContext from "./createDataContext";
 const blogReducer = (state, action) => {
 
     switch (action.type) {
+
+        //gets all blogPosts from JSON Server
+        case "get_blogposts":
+            return action.payload;
+
+
         case "add_blogpost":
             //we use math.random to randomly generate and id for every new blogpost
             return [...state, { id: Math.floor(Math.random() * 99999), title: action.payload.blogTitle, content: action.payload.blogContent }];
@@ -41,6 +48,43 @@ const blogReducer = (state, action) => {
     }
 
 };
+
+
+
+
+
+
+
+
+
+
+const getBlogPosts = dispatch => {
+
+    //because we are communicating with an api we need to make this function async/await
+    //everything we sent as a request is going to be added to our baseURL in jsonServer file
+    return async () => {
+        const response = await jsonServer.get("/blogposts");
+        //this is where our blogposts will be
+        //response.data === [ {}, {} , {} ]
+
+
+        //now we call our dispatch function to fill our state with payload property
+        dispatch({ type: "get_blogposts", payload: response.data })
+    };
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
