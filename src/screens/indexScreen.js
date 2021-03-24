@@ -32,12 +32,10 @@ const IndexScreen = ({ navigation }) => {
 
         //if we are returning a function from useEffect it means that function is going to run only 
         //if that insance of IndexScreen is ever completly stopped showing
-
         return () => {
             //soon as our component is completly out of device go ahead and clean up the listener
             listener.remove();
         }
-
 
 
     }, []);

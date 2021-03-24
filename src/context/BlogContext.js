@@ -15,11 +15,6 @@ const blogReducer = (state, action) => {
         case "get_blogposts":
             return action.payload;
 
-
-        case "add_blogpost":
-            //we use math.random to randomly generate and id for every new blogpost
-            return [...state, { id: Math.floor(Math.random() * 99999), title: action.payload.blogTitle, content: action.payload.blogContent }];
-
         case "delete_blogpost":
             //helper function filter goes through all of elements of state, and runs the given function
             //the function is taking blogpost as a param and returning true or false 
@@ -115,7 +110,7 @@ const addBlogPost = dispatch => {
         //we mark this as an async function and givin two params
         //first one is where are we adding an object and second one is an object with all needed props
         await jsonServer.post("/blogposts", { title: title, content: content });
-
+        //navigate back to the index screen
         callbackFunction();
     };
 };
