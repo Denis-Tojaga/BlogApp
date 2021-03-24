@@ -124,7 +124,12 @@ const deleteBlogPost = dispatch => {
     //we are only running this function between components
     //thats why we need to pass in the objectId to this function as a parameter
     //then we can transfer it as a payload
-    return (objectId) => {
+    return async (objectId) => {
+
+        //sending an objectID on delete request
+        await jsonServer.delete(`/blogposts/${objectId}`);
+
+        //after deleting it on server we dispatch a function for deleting a post from local state 
         dispatch({ type: "delete_blogpost", payload: objectId });
     };
 };
