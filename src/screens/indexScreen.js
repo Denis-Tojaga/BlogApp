@@ -28,6 +28,8 @@ const IndexScreen = ({ navigation }) => {
             </View>
 
 
+
+
             <FlatList
                 data={state}
                 keyExtractor={blogPost => blogPost.title}
