@@ -144,7 +144,13 @@ const editBlogPost = dispatch => {
     //this inner function is exactly what is going to be called in our component
     //we are passing in an id of a blogPost we are editing
     //and new title and new content
-    return (id, newTitle, newContent, callBackFunction) => {
+    return async (id, newTitle, newContent, callBackFunction) => {
+
+        //we are sending an objectID to server so it can know what object it needs to edit
+        //and as a second argument we are sending an object with new values that need to be replaced
+        await jsonServer.put(`/blogposts/${id}`, { title: newTitle, content: newContent });
+
+
         dispatch({ type: "edit_blogpost", payload: { id: id, title: newTitle, content: newContent } });
         callBackFunction();
     };
