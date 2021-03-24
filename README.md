@@ -13,5 +13,9 @@
 
 Mobile app for Android/iOS made with React-Native. The app provides all CRUD operations on data, where user can easily add/delete/modify his blog posts.
 In app communication with an API, and the whole app is running on custom JSON Server, with Ngrok establishing that connection. 
+On the first screen user has a view of all his recent blog posts, there he can delete certain blog post, and by clicking on it the blog post details show 
+on another screen.
+From that screen user has an ability to edit that post, where the app redirects him to a new edit screen where changes can be saved.
+On every save the user is redirected to the appropriate screen.
 
 
