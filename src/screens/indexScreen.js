@@ -16,7 +16,30 @@ const IndexScreen = ({ navigation }) => {
 
     //we use useEffect to run the arrow function exactly one time when the screen gets rendered
     useEffect(() => {
+
+        //everytime we first start our application do a fetch but only once
         getBlogPosts();
+
+        //this function tells the react-native everytime when an indexScreen gains focus
+        //do a fetch
+        //occurs only when index screen has focus
+        //this saves as some listener
+        const listener = navigation.addListener("didFocus", () => {
+            getBlogPosts();
+        });
+
+
+
+        //if we are returning a function from useEffect it means that function is going to run only 
+        //if that insance of IndexScreen is ever completly stopped showing
+
+        return () => {
+            //soon as our component is completly out of device go ahead and clean up the listener
+            listener.remove();
+        }
+
+
+
     }, []);
 
 
