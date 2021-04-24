@@ -19,3 +19,7 @@ on another screen.From that screen user has an ability to edit that post, where 
 On every save the user is redirected to the appropriate screen.
 
 
+### iOS
+
+
+
