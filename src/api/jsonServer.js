@@ -8,5 +8,5 @@ import axios from "axios";
 //because ngrok lasts only for that time
 
 export default axios.create({
-    baseURL: "http://6e9a5c09e8fe.ngrok.io"
+    baseURL: "http://8cee6165fb5a.ngrok.io"
 });
