@@ -2,11 +2,11 @@
 
 ## App startup
 
-#### - download the repo from github 
-#### - go inside that directory in terminal 
-#### - run "npm install" to download dependencies 
-#### - to start the app run "npm start"
-#### - scan the QR code with Camera app on iOS / scan the QR code with Expo Go app on Android / open it on emulator 
+### - download the repo from github 
+### - go inside that directory in terminal 
+### - run "npm install" to download dependencies 
+### - to start the app run "npm start"
+### - scan the QR code with Camera app on iOS / scan the QR code with Expo Go app on Android / open it on emulator 
 
 <br />
 
