@@ -2,7 +2,7 @@
 
 ## App startup
 
-### - download the repo from github 
+### - download the repo from github
 ### - go inside that directory in terminal 
 ### - run "npm install" to download dependencies 
 ### - to start the app run "npm start"
